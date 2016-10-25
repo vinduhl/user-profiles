@@ -24,10 +24,8 @@ var profiles = [
 module.exports = {
   getCurrentUsersFriendsList(req, res, next) {
     let friendsProfiles = [];
-    console.log("req.session.currentUser=", req.session.currentUser);
     if(req.session.currentUser) {
       const friends = req.session.currentUser.friends;
-      console.log("friends=", friends);
       friendsProfiles = profiles.filter( profile => {
         return friends.includes(profile.name)
       });
