@@ -9,6 +9,7 @@ const profileCtrl = require("./controllers/profileCtrl");
 const app = express();
 app.use(json());
 
+app.use(express.static(`${__dirname}/public`));
 
 const port = 8080;
 const corsOption = {
