@@ -4,4 +4,8 @@ angular.module('userProfiles')
     $scope.currentUser = response.data.currentUser;
     $scope.friends = response.data.friends;
   });
+
+  $scope.addFriend = function(user) {
+    
+  }
 });

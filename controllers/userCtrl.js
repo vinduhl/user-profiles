@@ -31,5 +31,25 @@ module.exports = {
       return res.status(200).json({ userFound: true });
     }
     return res.status(200).json({ userFound: false });
+  },
+
+  addFriend(req, res, next) {
+    const username = req.session.currentUser;
+    const friendname = req.body.friendname;
+    let success = false;
+
+    if(username && friendname) {
+      let filteredUser = users.filter( user => {
+        return user.name === username;
+      });
+      if(filteredUser.length === 1) {
+        if(!filteredUser[0].friends.includes(friendname)) {
+          filteredUser[0].friends.push(friendname);
+          success = true;
+        }
+      }
+    }
+
+    res.status(200).json({ friendAdded: success });
   }
 };

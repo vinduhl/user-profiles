@@ -11,4 +11,8 @@ angular.module('userProfiles')
     	return $http.get(`${ baseUrl }/api/profiles`);
     };
 
+    this.addFriend = function(user) {
+      return $http.post(`${ baseUrl }/api/friend`)
+    }
+
 });

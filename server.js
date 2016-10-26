@@ -21,6 +21,7 @@ app.use(session(config));
 
 app.post("/api/login", userCtrl.login);
 app.get("/api/profiles", profileCtrl.getCurrentUsersFriendsList);
+app.post("/api/friends", userCtrl.addFriend);
 
 app.listen(port, function() {
   console.log(`It's running on ${port}`);
